@@ -1,0 +1,5 @@
+INDEX VERSION 1.131+C:\Users\jonat\eclipse-workspace\conversor-java\.metadata\.plugins\org.eclipse.jdt.core
+3263907447.index
+1865797976.index
+1526266505.index
+902352996.index

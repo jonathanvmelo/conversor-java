@@ -1,0 +1,58 @@
+package conversor.java.temperatura;
+
+import conversor_java.tela.ConversorDeTemperatura;
+
+public class Temperatura extends ConversorDeTemperatura {
+	
+	ConversorDeTemperatura conversor = new ConversorDeTemperatura();
+	
+	String box1 = (String)jcombobox1.getSelectedItem();
+	String box2 = (String)jcombobox2.getSelectedItem();
+	
+	// Celsius para Fahreinheit
+	if(box1.equals("Celsius") && box2.equals("Fahrenheit")) {
+		double c = Double.parseDouble(txtTemperaturaInicial.getText());
+		double f = (double) (c *1.8 +32);				
+		txtTemperaturaConvertida.setText(String.valueOf(f));					
+	}
+	
+	//  Celsius para Kelvin 
+	else if(box1.equals("Celsius") && box2.equals("Kelvin")) {
+		double c = Double.parseDouble(txtTemperaturaInicial.getText());
+		double k = (double) (c + 273.15);					
+		txtTemperaturaConvertida.setText(String.valueOf(k));					
+	}
+	
+	
+	//  Fahreinheit para Celsius 
+	else if(box1.equals("Fahrenheit") && box2.equals("Celsius")) {
+		double f = Double.parseDouble(txtTemperaturaInicial.getText());
+	      double c = (double)((f - 32)*5/9);			
+		txtTemperaturaConvertida.setText(String.valueOf(c));					
+	}
+	
+	//  Fahreinheit para Kelvin 
+	else if(box1.equals("Fahrenheit") && box2.equals("Kelvin")) {
+		double f = Double.parseDouble(txtTemperaturaInicial.getText());
+		  double k = (double)((f - 32)*5/9 + 273.15);			
+		txtTemperaturaConvertida.setText(String.valueOf(k));					
+	}
+	
+	//  Kelvin para  Fahreinheit 
+	else if(box1.equals("Kelvin") && box2.equals("Fahrenheit")) {
+		double k = Double.parseDouble(txtTemperaturaInicial.getText());
+		   double f = (double)(0 - 273.15) * 9/5 +32;			
+		txtTemperaturaConvertida.setText(String.valueOf(f));					
+	}
+	
+	//Kelvin para Celsius
+    if(box1.equals("Kelvin") && box2.equals("Celsius")){
+           double k = Double.parseDouble(txtTemperaturaInicial.getText());
+           double c = (double)(0 - 273.15);				           
+          txtTemperaturaConvertida.setText(String.valueOf(c));
+       }
+	
+
+}
+
+}

@@ -1,0 +1,56 @@
+package conversor_java.tela;
+
+import java.awt.EventQueue;
+
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+import java.awt.BorderLayout;
+import java.awt.event.KeyEvent;
+import java.awt.Dialog.ModalityType;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
+
+public class ConvTemp extends JDialog {
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					ConvTemp dialog = new ConvTemp();
+					dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+					dialog.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the dialog.
+	 */
+	public ConvTemp() {
+		setModalityType(ModalityType.DOCUMENT_MODAL);
+		setResizable(false);
+		setModal(true);
+		setBounds(100, 100, 450, 300);
+		
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setDisplayedMnemonic(KeyEvent.VK_COMPOSE);
+		getContentPane().add(lblNewLabel, BorderLayout.CENTER);
+
+	}
+
+}

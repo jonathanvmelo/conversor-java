@@ -1,0 +1,41 @@
+package conversor.java.tela;
+
+public class Conversao {
+
+	public void ConversorDeMoedas(double valorRecebido) {
+		String opcao = (JOptionPane.showInputDialog(null, "Escolha a moeda para conversão", "Moedas",
+				JOptionPane.PLAIN_MESSAGE, null,
+				new Object[] { "De Reais a Dolar", "De Reais a Euro", "De Reais a Libra", "De Reais a Peso Argentino",
+						"De Dolar a Reais", "De Euro a Reais", "De Libra a Reais", "De Peso Argentino a Reais" },
+				"Escolha")).toString();
+		switch (opcao) {
+
+		case "De Reais a Dolar":
+			moedas.converterReaisADolar(valorRecebido);
+			break;
+		case  "De Reais a Euro":
+			moedas.converterReaisAEuro(valorRecebido);
+			break;
+		case "De Reais a Libra":
+			moedas.converterReaisALibrar(valorRecebido);
+			break;
+		case "De Reais a Peso Argentino":
+			moedas.converterReaisAPesoArgentino(valorRecebido);
+			break;
+		case "De Dolar a Reais":
+			moedas.converterDolarAReais(valorRecebido);
+			break;
+		case "De Euro a Reais":
+			moedas.converterEuroAReais(valorRecebido);
+			break;
+		case "De Libra a Reais":
+			moedas.converterLibraAReais(valorRecebido);
+			break;
+		case "De Peso Argentino a Reais":
+			moedas.converterPesoArgentinoAReais(valorRecebido);
+			break;
+
+		
+		}
+	}
+}

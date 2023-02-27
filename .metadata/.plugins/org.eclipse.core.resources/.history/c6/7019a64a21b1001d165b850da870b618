@@ -1,0 +1,83 @@
+package conversor_java.tela;
+
+import java.awt.EventQueue;
+
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import java.awt.BorderLayout;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+import javax.swing.JComboBox;
+import java.awt.Color;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+
+public class ConvTemp extends JDialog {
+	private JTextField textField;
+	private JTextField textField_1;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					ConvTemp dialog = new ConvTemp();
+					dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+					dialog.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the dialog.
+	 */
+	public ConvTemp() {
+		setBounds(100, 100, 450, 300);
+		
+		
+		JLabel lblNewLabel = new JLabel("Conversor de Temperatura");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
+		getContentPane().add(lblNewLabel, BorderLayout.NORTH);
+		
+		JLabel lblNewLabel_1 = new JLabel("Converter de:");
+		getContentPane().add(lblNewLabel_1, BorderLayout.NORTH);
+		
+		JComboBox comboBoxMoedaInicial_1 = new JComboBox();
+		comboBoxMoedaInicial_1.setSelectedIndex(0);
+		comboBoxMoedaInicial_1.setBackground(Color.WHITE);
+		getContentPane().add(comboBoxMoedaInicial_1, BorderLayout.NORTH);
+		
+		JComboBox comboBoxMoedaInicial = new JComboBox();
+		comboBoxMoedaInicial.setSelectedIndex(0);
+		comboBoxMoedaInicial.setBackground(Color.WHITE);
+		getContentPane().add(comboBoxMoedaInicial, BorderLayout.NORTH);
+		
+		JLabel lblPara = new JLabel("Para:");
+		getContentPane().add(lblPara, BorderLayout.NORTH);
+		
+		textField = new JTextField();
+		textField.setColumns(10);
+		getContentPane().add(textField, BorderLayout.NORTH);
+		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		getContentPane().add(textField_1, BorderLayout.NORTH);
+		
+		JButton btnNewButton = new JButton("Converter");
+		getContentPane().add(btnNewButton, BorderLayout.NORTH);
+		
+		JButton btnLimpar = new JButton("Limpar");
+		getContentPane().add(btnLimpar, BorderLayout.NORTH);
+		
+		JButton btnVoltar = new JButton("Voltar");
+		getContentPane().add(btnVoltar, BorderLayout.NORTH);
+
+	}
+
+}

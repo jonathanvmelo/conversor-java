@@ -1,0 +1,241 @@
+package conversor.java.tela;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import Atxy2k.CustomTextField.RestrictedTextField;
+
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
+import java.awt.Font;
+import javax.swing.JComboBox;
+import java.awt.Color;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.SystemColor;
+import java.awt.Rectangle;
+import javax.swing.JToolBar;
+import javax.swing.ImageIcon;
+import java.awt.Toolkit;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.SoftBevelBorder;
+
+@SuppressWarnings("serial")
+public class ConversorDeTemperatura extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField txtTemperaturaInicial;
+	private JTextField txtTemperaturaConvertida;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					ConversorDeTemperatura frame = new ConversorDeTemperatura();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public ConversorDeTemperatura() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(ConversorDeTemperatura.class.getResource("/image/temperatures.png")));
+		setTitle("Conversor de Temperatura");
+		setResizable(false);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setBounds(700, 400, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		contentPane.setLayout(null);
+
+		JLabel lblPara = new JLabel("Para:");
+		lblPara.setBounds(32, 126, 118, 19);
+		contentPane.add(lblPara);
+
+		JComboBox jcombobox2 = new JComboBox();
+		jcombobox2.setModel(new DefaultComboBoxModel(new String[] { "Selecione", "Celsius", "Fahrenheit", "Kelvin" }));
+		jcombobox2.setSelectedIndex(0);
+		jcombobox2.setBackground(Color.WHITE);
+		jcombobox2.setBounds(32, 140, 165, 22);
+		contentPane.add(jcombobox2);
+
+		JLabel lblNewLabel_1 = new JLabel("Converter de:");
+		lblNewLabel_1.setBounds(32, 75, 118, 19);
+		contentPane.add(lblNewLabel_1);
+
+		JComboBox jcombobox1 = new JComboBox();
+		jcombobox1.setModel(new DefaultComboBoxModel(new String[] { "Selecione", "Celsius", "Fahrenheit", "Kelvin" }));
+		jcombobox1.setSelectedIndex(0);
+		jcombobox1.setBackground(Color.WHITE);
+		jcombobox1.setBounds(32, 93, 165, 22);
+		contentPane.add(jcombobox1);
+
+		txtTemperaturaInicial = new JTextField();
+		txtTemperaturaInicial.setBounds(231, 95, 165, 22);
+		contentPane.add(txtTemperaturaInicial);
+		txtTemperaturaInicial.setColumns(10);
+
+		txtTemperaturaConvertida = new JTextField();
+		txtTemperaturaConvertida.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		txtTemperaturaConvertida.setEditable(false);
+		txtTemperaturaConvertida.setColumns(10);
+		txtTemperaturaConvertida.setBounds(231, 139, 165, 24);
+		contentPane.add(txtTemperaturaConvertida);
+
+		// Conversão
+		JButton btnNewButton = new JButton("Converter");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				if (txtTemperaturaInicial.getText().equals("")) {
+					JOptionPane.showMessageDialog(null, "Favor digitar um valor");
+					txtTemperaturaInicial.requestFocus();
+				} else {
+					// converterTemperatura();
+					String box1 = (String) jcombobox1.getSelectedItem();
+					String box2 = (String) jcombobox2.getSelectedItem();
+
+					// Celsius para Fahreinheit
+					if (box1.equals("Celsius") && box2.equals("Fahrenheit")) {
+						double c = Double.parseDouble(txtTemperaturaInicial.getText());
+						double f = (double) (c * 1.8 + 32);
+						txtTemperaturaConvertida.setText(String.valueOf(f));
+					}
+
+					// Celsius para Kelvin
+					else if (box1.equals("Celsius") && box2.equals("Kelvin")) {
+						double c = Double.parseDouble(txtTemperaturaInicial.getText());
+						double k = (double) (c + 273.15);
+						txtTemperaturaConvertida.setText(String.valueOf(k));
+					}
+					
+					// Celsius para Celsius
+					else if (box1.equals("Celsius") && box2.equals("Celsius")) {
+						double c = Double.parseDouble(txtTemperaturaInicial.getText());
+						txtTemperaturaConvertida.setText(String.valueOf(c));
+					}
+
+					// Fahreinheit para Celsius
+					else if (box1.equals("Fahrenheit") && box2.equals("Celsius")) {
+						double f = Double.parseDouble(txtTemperaturaInicial.getText());
+						double c = (double) ((f - 32) * 5 / 9);
+						txtTemperaturaConvertida.setText(String.valueOf(c));
+					}
+
+					// Fahreinheit para Kelvin
+					else if (box1.equals("Fahrenheit") && box2.equals("Kelvin")) {
+						double f = Double.parseDouble(txtTemperaturaInicial.getText());
+						double k = (double) ((f - 32) * 5 / 9 + 273.15);
+						txtTemperaturaConvertida.setText(String.valueOf(k));
+					}
+					
+					// Fahreinheit para Fahreinheit
+					else if (box1.equals("Fahrenheit") && box2.equals("Fahrenheit")) {
+						double f = Double.parseDouble(txtTemperaturaInicial.getText());
+						txtTemperaturaConvertida.setText(String.valueOf(f));
+					}
+
+					// Kelvin para Fahreinheit
+					else if (box1.equals("Kelvin") && box2.equals("Fahrenheit")) {
+						double k = Double.parseDouble(txtTemperaturaInicial.getText());
+						double f = (double) ((0 - 273.15) * 9 / 5 + 32);
+						txtTemperaturaConvertida.setText(String.valueOf(f));
+					}
+
+					// Kelvin para Celsius
+					if (box1.equals("Kelvin") && box2.equals("Celsius")) {
+						double k = Double.parseDouble(txtTemperaturaInicial.getText());
+						double c = (double) (0 - 273.15);
+						txtTemperaturaConvertida.setText(String.valueOf(c));
+					}
+					
+					// Kelvin para Kelvin
+					if (box1.equals("Kelvin") && box2.equals("Kelvin")) {
+						double k = Double.parseDouble(txtTemperaturaInicial.getText());
+						txtTemperaturaConvertida.setText(String.valueOf(k));
+			
+					
+					}
+
+				}
+			}
+		});
+
+		btnNewButton.setBounds(32, 204, 97, 23);
+		contentPane.add(btnNewButton);
+
+		JButton btnLimpar = new JButton("Limpar");
+		btnLimpar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				txtTemperaturaInicial.setText("");
+				txtTemperaturaConvertida.setText("");
+				jcombobox1.nextFocus();
+				jcombobox2.resetKeyboardActions();
+
+			}
+		});
+		btnLimpar.setBounds(164, 204, 97, 23);
+		contentPane.add(btnLimpar);
+
+		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				voltar();
+
+			}
+
+			private void voltar() {
+				String msg = "Deseja realmente voltar?";
+				int voltar = JOptionPane.showConfirmDialog(btnLimpar, msg, null, JOptionPane.YES_NO_OPTION);
+				if (voltar == JOptionPane.YES_OPTION) {
+					Main conversor = new Main();
+					conversor.setVisible(true);
+					ConversorDeTemperatura temp = new ConversorDeTemperatura();
+					temp.dispose();
+					temp = null;
+				}
+
+			}
+		});
+		btnVoltar.setBounds(299, 204, 97, 23);
+		contentPane.add(btnVoltar);
+
+		// Validação com a bibliotéca atxy2k
+		RestrictedTextField validar = new RestrictedTextField(txtTemperaturaInicial);
+
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(30, 144, 255));
+		panel.setBounds(0, 0, 434, 64);
+		contentPane.add(panel);
+		panel.setLayout(null);
+
+		JLabel lblNewLabel = new JLabel("Conversor de Temperatura");
+		lblNewLabel.setIcon(
+				new ImageIcon(ConversorDeTemperatura.class.getResource("/image/icons8-high-temperatures-32.png")));
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblNewLabel.setForeground(SystemColor.text);
+		lblNewLabel.setBounds(68, 0, 310, 53);
+		panel.add(lblNewLabel);
+		validar.setOnlyNums(true);
+		validar.setLimit(3);
+
+	}
+}

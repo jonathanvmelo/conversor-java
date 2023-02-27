@@ -1,0 +1,108 @@
+package conversor_java.tela;
+
+import java.awt.Color;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import java.awt.Toolkit;
+import javax.swing.JLabel;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.SwingConstants;
+import java.awt.Font;
+
+@SuppressWarnings("serial")
+public class ConversorDeMoedas extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textField;
+	private JTextField textField_1;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					ConversorDeMoedas frame = new ConversorDeMoedas();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public ConversorDeMoedas() {
+		setFont(new Font("Dialog", Font.PLAIN, 12));
+		setResizable(false);
+		setIconImage(Toolkit.getDefaultToolkit().getImage(ConversorDeMoedas.class.getResource("/conversor/java/img/currency.png")));
+		setTitle("Conversor de Moedas");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(700, 400, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Converter de:");
+		lblNewLabel.setBounds(34, 67, 118, 19);
+		contentPane.add(lblNewLabel);
+		
+		JComboBox comboBoxMoedaInicial = new JComboBox();
+		comboBoxMoedaInicial.setBackground(Color.WHITE);
+		comboBoxMoedaInicial.setModel(new DefaultComboBoxModel(new String[] 
+				{"Selecione", "Real", "Dolar", "Euro", "Libras Esterlinas", "Peso Argentino", "Peso Chileno"}));
+		comboBoxMoedaInicial.setSelectedIndex(0);
+		comboBoxMoedaInicial.setBounds(34, 85, 165, 22);
+		contentPane.add(comboBoxMoedaInicial);
+		
+		JComboBox comboBoxMoedaInicial_1 = new JComboBox();
+		comboBoxMoedaInicial_1.setModel(new DefaultComboBoxModel(new String[] {"Selecione", "Real", "Dolar", "Euro", "Libras Esterlinas", "Peso Argentino", "Peso Chileno"}));
+		comboBoxMoedaInicial_1.setSelectedIndex(0);
+		comboBoxMoedaInicial_1.setBackground(Color.WHITE);
+		comboBoxMoedaInicial_1.setBounds(237, 85, 165, 22);
+		contentPane.add(comboBoxMoedaInicial_1);
+		
+		JLabel lblNewLabel_1 = new JLabel("Para:");
+		lblNewLabel_1.setBounds(238, 69, 46, 14);
+		contentPane.add(lblNewLabel_1);
+		
+		textField = new JTextField();
+		textField.setBounds(34, 131, 165, 36);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(237, 131, 165, 36);
+		contentPane.add(textField_1);
+		
+		JButton btnNewButton = new JButton("Converter");
+		btnNewButton.setBounds(34, 199, 89, 23);
+		contentPane.add(btnNewButton);
+		
+		JButton btnLimpar = new JButton("Limpar");
+		btnLimpar.setBounds(174, 199, 89, 23);
+		contentPane.add(btnLimpar);
+		
+		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.setBounds(313, 199, 89, 23);
+		contentPane.add(btnVoltar);
+		
+		JLabel lblNewLabel_2 = new JLabel("Conversor de Moedas");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblNewLabel_2.setHorizontalTextPosition(SwingConstants.LEADING);
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2.setBounds(34, 25, 368, 14);
+		contentPane.add(lblNewLabel_2);
+	}
+}

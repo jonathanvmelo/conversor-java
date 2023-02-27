@@ -1,0 +1,135 @@
+package conversor.java;
+
+import java.awt.EventQueue;
+import java.awt.Font;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
+
+import Atxy2k.CustomTextField.RestrictedTextField;
+
+import javax.swing.JButton;
+import java.awt.Cursor;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Color;
+import java.awt.SystemColor;
+import java.awt.Toolkit;
+import javax.swing.ImageIcon;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+@SuppressWarnings("serial")
+public class Main extends JFrame {
+
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Main frame = new Main();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Main() {
+		setResizable(false);
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Main.class.getResource("/image/home.png")));
+		setTitle("Conversor Java");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(700, 400, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JButton btnConversorDeMoedas = new JButton("Conversor de Moedas");
+		btnConversorDeMoedas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		btnConversorDeMoedas.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnConversorDeMoedas.setBounds(92, 85, 254, 31);
+		contentPane.add(btnConversorDeMoedas);
+		
+		JButton btnNewButton = new JButton("Conversor de Temperatura");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ConversorDeTemperatura temperatura = new ConversorDeTemperatura();
+				temperatura.setVisible(true);
+
+				
+			}
+		});
+		btnNewButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnNewButton.setBounds(92, 127, 254, 35);
+		contentPane.add(btnNewButton);
+		
+		JButton btnConversorDeVelocidade = new JButton("Conversor de Velocidade");
+		btnConversorDeVelocidade.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnConversorDeVelocidade.setBounds(92, 173, 254, 30);
+		contentPane.add(btnConversorDeVelocidade);
+		
+		JButton btnSair = new JButton("Sair");
+		btnSair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int sair = JOptionPane.showConfirmDialog(btnSair,"Deseja realmente Sair?", null, JOptionPane.YES_NO_OPTION);
+				if(sair == JOptionPane.YES_OPTION) {
+					System.exit(sair);
+				}
+				
+			}
+		});
+		btnSair.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		btnSair.setBounds(92, 227, 254, 23);
+		contentPane.add(btnSair);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(30, 144, 255));
+		panel.setBounds(0, 0, 434, 64);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Conversor JAVA");
+		lblNewLabel.setForeground(SystemColor.text);
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setHorizontalTextPosition(SwingConstants.CENTER);
+		lblNewLabel.setBounds(92, 0, 257, 64);
+		panel.add(lblNewLabel);
+		
+		JLabel lblAbout = new JLabel("New label");
+		lblAbout.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		lblAbout.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				About about = new About();
+				about.setVisible(true);
+			}
+		});
+		lblAbout.setToolTipText("Sobre");
+		lblAbout.setBounds(376, 12, 48, 48);
+		panel.add(lblAbout);
+		lblAbout.setIcon(new ImageIcon(Main.class.getResource("/image/help.png")));
+		
+		
+	
+	}
+}

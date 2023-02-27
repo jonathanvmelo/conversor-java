@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class Exercicio {
+	public void soma(int x, int y) {
+		int total = y / 2;
+		int resultadoParcial = y + x;
+		int resFinal = total * resultadoParcial;
+
+	}
+
+
+	public static void main(String[] args) {
+
+		Scanner scan = new Scanner(System.in);
+		int x = scan.nextInt();
+		int y = scan.nextInt();
+		soma(x, y);
+		System.out.println(soma(x,y));
+
+	}
+
+
+}

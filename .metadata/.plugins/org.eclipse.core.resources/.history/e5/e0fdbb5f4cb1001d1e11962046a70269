@@ -1,0 +1,61 @@
+package conversor.java.tela;
+
+import javax.swing.JOptionPane;
+
+public class moedas {
+	public void converterReaisADolar(double valor) {
+
+		double moedaDolar = valor / 5.19;
+		moedaDolar = (double) Math.round(moedaDolar * 100d) / 100;
+		JOptionPane.showMessageDialog(null, "Você tem $" + moedaDolar + " dólares");
+	}
+
+	public void converterReaisAEuro(double valor) {
+
+		double moedaEuro = valor / 5.57;
+		moedaEuro = (double) Math.round(moedaEuro * 100d) / 100;
+		JOptionPane.showMessageDialog(null, "Você tem €" + moedaEuro + " euros");
+	}
+
+	public void converterReaisALibrar(double valor) {
+
+		double moedaLibra = valor / 6.37;
+		moedaLibra = (double) Math.round(moedaLibra * 100d) / 100;
+		JOptionPane.showMessageDialog(null, "Você tem £" + moedaLibra + " libras");
+	}
+
+	public void converterReaisAPesoArgentino(double valor) {
+
+		double moedaPesoArg = valor / 0.028;
+		moedaPesoArg = (double) Math.round(moedaPesoArg * 100d) / 100;
+		JOptionPane.showMessageDialog(null, "Você tem $" + moedaPesoArg + " pesos");
+	}
+
+	public void converterDolarAReais(double valor) {
+
+		double moedaPesoArg = valor / 0.19;
+		moedaPesoArg = (double) Math.round(moedaPesoArg * 100d) / 100;
+		JOptionPane.showMessageDialog(null, "Você tem R$" + moedaPesoArg + " reais");
+	}
+
+	public void converterEuroAReais(double valor) {
+
+		double moedaPesoArg = valor / 0.18;
+		moedaPesoArg = (double) Math.round(moedaPesoArg * 100d) / 100;
+		JOptionPane.showMessageDialog(null, "Você tem R$" + moedaPesoArg + " reais");
+	}
+
+	public void converterLibraAReais(double valor) {
+
+		double moedaPesoArg = valor / 0.16;
+		moedaPesoArg = (double) Math.round(moedaPesoArg * 100d) / 100;
+		JOptionPane.showMessageDialog(null, "Você tem R$" + moedaPesoArg + " reais");
+	}
+
+	public void converterPesoArgentinoAReais(double valor) {
+
+		double moedaPesoArg = valor / 35.34;
+		moedaPesoArg = (double) Math.round(moedaPesoArg * 100d) / 100;
+		JOptionPane.showMessageDialog(null, "Você tem R$" + moedaPesoArg + " reais");
+	}
+}

@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+public class Exercicio {
+
+	public static void main(String[] args) {
+	
+		Scanner scan = new Scanner(System.in);
+		int x = scan.nextInt();
+		int y = scan.nextInt();
+		int total = y/2;
+		int resultadoParcial = y + x;
+		int resFinal = total * resultadoParcial;
+		System.out.println(resFinal);
+		
+		
+
+	}
+
+}
